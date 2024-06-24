@@ -10,11 +10,13 @@ defmodule ExFtx.Account.ShowTest do
 
   @valid_credentials %ExFtx.Credentials{
     api_key: System.get_env("FTX_API_KEY"),
-    api_secret: System.get_env("FTX_API_SECRET")
+    api_secret: System.get_env("FTX_API_SECRET"),
+    sub_account: System.get_env("FTX_SUBACCOUNT")
   }
   @invalid_credentials %ExFtx.Credentials{
     api_key: "invalid",
-    api_secret: "invalid"
+    api_secret: "invalid",
+    sub_account: nil
   }
 
   test ".get/1 ok" do

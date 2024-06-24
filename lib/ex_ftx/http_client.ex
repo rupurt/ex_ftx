@@ -108,7 +108,11 @@ defmodule ExFtx.HTTPClient do
       )
 
     ["FTX-KEY": credentials.api_key, "FTX-SIGN": signature, "FTX-TS": timestamp]
+    |> put_sub_account_auth_header(credentials.sub_account)
   end
+
+  defp put_sub_account_auth_header(headers, nil), do: headers
+  defp put_sub_account_auth_header(headers, sub_account), do: headers |> Keyword.put(:"FTX-SUBACCOUNT", sub_account)
 
   defp normalize_http_method(:get), do: "GET"
   defp normalize_http_method(:post), do: "POST"

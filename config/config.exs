@@ -2,7 +2,8 @@ use Mix.Config
 
 config :ex_ftx,
   api_key: System.get_env("FTX_API_KEY"),
-  api_secret: System.get_env("FTX_API_SECRET")
+  api_secret: System.get_env("FTX_API_SECRET"),
+  sub_account: System.get_env("FTX_SUBACCOUNT")
 
 config :exvcr,
   filter_request_headers: [
